@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+   
+   .modal{
+    width: 100%;
+    height : 100%;
+    left:0;
+    top:0;
+    background-color: rgba(0,0,0,0.5); 
+    position: fixed;
+    display: none;
+   }
+   .modal-contant{
+       
+        width: 60%;
+        height: 250px;
+        margin: 15% auto;
+       position: relative;
+        background-color: white;
+        padding:20px ;
+     animation-name: openling;
+    animation-duration : 0.5s;
+   }
+   .btn-x{
+    color:#aaa;
+    float: right;
+    font-size: 50px;
+    font-weight: bold;
+   }
+   .btn-x:hover{
+        color:black;
+        cursor: pointer;
+   }
+   @keyframes openling{
+    from{opacity: 0;bottom :-300px}
+    to{  opacity: 1;bottom:0}
+
+   }
+   .tenweb{
+    font-size: 30px;
+    font-weight: bold;
+    background-color: pink;
+    width:300px;
+    height:70px;
+    text-align: center;
+    padding-top:40px ;
+   }
+ 
+</style>
+</head>
+<body>
+    <div class="tenweb">FPT Shop</div>
+    <p>Vietnam was inhabited by the Paleolithic age, with states established in the first millennium BC on the Red River Delta in modern-day northern Vietnam. The Han dynasty annexed Northern and Central Vietnam under Chinese rule from 111 BC, until the first dynasty emerged in 939. Successive monarchical dynasties absorbed Chinese influences through Confucianism and Buddhism, and expanded southward to the Mekong Delta, conquering Champa. The Nguyễn—the last imperial dynasty—surrendered to France in 1883. Following the August Revolution, the nationalist coalition Viet Minh under the leadership of communist revolutionary Ho Chi Minh proclaimed independence of Vietnam in 1945.</p>
+    <p>Vietnam or Viet Nam[n 3] (commonly abbreviated VN; Vietnamese: Việt Nam, [vîət nām] (listen)), officially the Socialist Republic of Vietnam (SRV),[n 4] is a country in Southeast Asia. It is located at the eastern edge of mainland Southeast Asia, with an area of 331,212 square kilometres 127,882 sq  and population of 99 million, making it the world's fifteenth-most populous country. Vietnam borders China to the north, and Laos and Cambodia to the west. It shares maritime borders with Thailand through the Gulf of Thailand, and the Philippines, Indonesia, and Malaysia through the South China Sea. Its capital is Hanoi and its largest city is Ho Chi Minh City (commonly referred to by its former name, Saigon). </p>
+
+    <button id="openmodal">open modal</button>
+    <div class="modal">
+        <div class="modal-contant">
+            <span class="btn-x">&times;</span>
+        </div>
+    
+    </div>
+
+
+</body>
+<script>
+    var openmodal= document.getElementById("openmodal")
+    openmodal.onclick=function() {
+        var openmodal= document.getElementsByClassName("modal")[0];
+        openmodal.style.display="block";
+
+    }
+    var x =document.getElementsByClassName("btn-x")[0]
+    x.onclick =function(){
+        var openmodal= document.getElementsByClassName("modal")[0];
+        openmodal.style.display="none";
+
+    }
+</script>
+</html>

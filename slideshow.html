@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .slide {
+            width: 50%;
+        }
+
+        img {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="khungchua-slide">
+    <div class="slide">
+        <img src="hinh1.jpg">
+    </div>
+
+    <div class="slide">
+        <img src="hinh2.jpg">
+    </div>
+
+    <div class="slide">
+        <img src="hinh3.jpg">
+    </div>
+</div>
+<button id="idnut1">1</button>
+<button id="idnut2">2</button>
+<button id="idnut3">3</button>
+</body>
+
+<script>
+    var cac_slide = document.getElementsByClassName("slide");
+    antatca_slide();
+    cac_slide[0].style.display = "block";
+
+    function antatca_slide() {
+        // Ẩn tất cả các slide đi :
+        for (var i = 0; i <= 2; i += 1) {
+            cac_slide[i].style.display = "none";
+        }
+    }
+
+    var ele_nut1 = document.getElementById("idnut1");
+    ele_nut1.onclick = function() {
+        antatca_slide();
+        cac_slide[0].style.display = "block";
+    }
+
+    var ele_nut2 = document.getElementById("idnut2");
+    ele_nut2.onclick = function() {
+        antatca_slide();
+        cac_slide[1].style.display = "block";
+    }
+
+    var ele_nut3 = document.getElementById("idnut3");
+    ele_nut3.onclick = function() {
+        antatca_slide();
+        cac_slide[2].style.display = "block";
+    }
+    
+    
+</script>
+</html

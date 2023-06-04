@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+</head>
+
+<body>
+    <div>tên: <span id="ten_id">?</span></div>
+    <div>tuổi: <span id="so_tuoi">?</span></div>
+    <div>ngoại hình</div>
+    <div>tính cách</div>
+
+    <label>tài khoản </label> <input id="inp_tk"> <br />
+    <label>mật khẩu </label> <input id="inp_mk" type="password"> <br />
+    <label>xác nhận mật khẩu </label> <input id="inp_xmk" type="password"> <br />
+    <button id="nut_dang_ki" onclick="chucnang_dangki()">đăng kí</button>
+
+    <br><br><br>
+    <h1>Đăng nhập</h1>
+    <label>Tài khoản : </label> <input id="login_tk"> <br/>
+    <label>Mật khẩu : </label> <input id="login_mk" type="password"> <br/>
+    <button id="nutdangnhap" onclick="chucnang_dangnhap()">Đăng nhập</button>
+
+</body>
+<script>
+    //làm phần tuổi
+    var tuoi = 10 + Math.floor(Math.random() * 60);
+    var so_tuoi = document.getElementById("so_tuoi");
+    so_tuoi.innerHTML = tuoi.toString();
+    //phần họ
+    var họ = ["nguyễn huỳnh", "nguyễn thiện", "trần thị"];
+    var ten_ngau_nhien_ho = Math.floor(Math.random() * 2);
+
+
+
+    //names
+    var names = ["tân", "phúc", "trâm", "phuong linh", "thảo"];
+    var ten = document.getElementById("ten_id");
+    var ten_ngau_nhien_ten = Math.floor(Math.random() * 4);
+    ten.innerHTML = họ[ten_ngau_nhien_ho] + " " + names[ten_ngau_nhien_ten];
+   /// localStorage.setItem("lastname", "Smith");
+
+    ///phần đăng kí
+    function chucnang_dangki() {
+        var taikhoan = document.getElementById("inp_tk").value;
+        var matkhau = document.getElementById("inp_mk").value;
+        var xacnhan_matkhau = document.getElementById("inp_xmk").value;
+
+        ///đăng kí thành cong 
+        if (matkhau == xacnhan_matkhau) {
+            
+            var newobj={account:taikhoan,password:matkhau};
+            var newJSON= JSON.stringify(newobj);
+            localStorage.setItem("tk_"+taikhoan,newJSON );
+            alert("đăng kí thành công ");
+        } else {
+            alert("vui lòng đăng nhập lại");
+        }
+    };
+
+
+    ///chức năng đăng nhập
+    function chucnang_dangnhap(){
+        var taikhoan = document.getElementById("login_tk").value;
+        var matkhau = document.getElementById("login_mk").value;
+
+        var taikhoan_timduoc = localStorage.getItem("tk_"+taikhoan);
+
+        if(taikhoan_timduoc==null) {
+            alert("tài khoản không tồn tại");
+
+        } else{
+            var obj_taikhoan = JSON.parse(taikhoan_timduoc);
+            if (matkhau==obj_taikhoan.password){
+                alert("đăng nhập thành công ");
+            }else{
+                alert("mật khẩu không trùng khớp");
+            }
+        }
+    }
+
+
+</script>
+
+</html>
